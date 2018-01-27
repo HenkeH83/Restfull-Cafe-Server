@@ -61,9 +61,9 @@ public class CafeServerEndPoint implements Serializable{
     }
     
     @DELETE
-    @Path("/delete")
-    @Consumes(MediaType.APPLICATION_XML)
-    public void deleteCoffee(CoffeeBean bean) {
-    	coffee.deleteCoffee(bean);
+    @Path("/delete/{name}")
+    @Produces(MediaType.APPLICATION_XML)
+    public void deleteCoffee(@PathParam ("name")String name) {
+    	coffee.deleteCoffee(name);
     }
 }

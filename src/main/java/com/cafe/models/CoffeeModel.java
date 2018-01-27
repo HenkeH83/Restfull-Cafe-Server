@@ -32,8 +32,9 @@ public class CoffeeModel {
 		return setBeanFromEntity(setEntityFromBean(bean));
 	}
 	
-	public void deleteCoffee(CoffeeBean bean) {
-		CoffeeEntity entity = setEntityFromBean(bean);
+	public void deleteCoffee(String name) {
+		CoffeeEntity entity = dao.getCoffee(name);
+//		CoffeeEntity entity = setEntityFromBean(bean);
 		dao.deleteCoffee(entity);
 	}
 	
