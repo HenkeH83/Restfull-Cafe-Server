@@ -10,7 +10,7 @@
 	<name>cafe</name>
 
 	<build>
-		<finalName>cafe</finalName>
+		<finalName>cafe-server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

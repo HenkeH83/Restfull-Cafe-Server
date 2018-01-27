@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -15,6 +16,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.cafe.beans.CoffeeBean;
+import com.cafe.entitys.CoffeeEntity;
 import com.cafe.models.CoffeeModel;
 
 /**
@@ -43,17 +45,25 @@ public class CafeServerEndPoint implements Serializable{
     	return coffee.getCoffee(name);
     }
     
-    @PUT
-    @Path("/{coffeename}/{coffeeprice}")
-    @Consumes(MediaType.TEXT_PLAIN)
-    public void createCoffee(@PathParam("coffeename") String name,@PathParam("coffeeprice") long price) {
-    	coffee.createCoffee(name, price);
+//    @PUT
+//    @Path("/{coffeename}/{coffeeprice}")
+//    @Consumes(MediaType.TEXT_PLAIN)
+//    public void createCoffee(@PathParam("coffeename") String name,@PathParam("coffeeprice") long price) {
+//    	coffee.createCoffee(name, price);
+//    }
+    
+
+    @POST
+    @Path("/create")
+    @Produces(MediaType.APPLICATION_XML)
+    public CoffeeBean createCoffee(CoffeeBean bean) {
+        return coffee.createCoffee(bean);
     }
     
     @DELETE
-    @Path("/{coffeename}")
-    @Produces(MediaType.APPLICATION_XML)
-    public void deleteCoffee(@PathParam("coffeename")String name) {
-    	coffee.deleteCoffee(name);
+    @Path("/delete")
+    @Consumes(MediaType.APPLICATION_XML)
+    public void deleteCoffee(CoffeeBean bean) {
+    	coffee.deleteCoffee(bean);
     }
 }

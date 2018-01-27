@@ -25,19 +25,15 @@ public class CoffeeModel {
 
 	
 	public CoffeeBean getCoffee(String name) {
-		CoffeeEntity ce = dao.getCoffee(name);
-		CoffeeBean cb = new CoffeeBean();
-		cb.setName(ce.getName());
-		cb.setPrice(ce.getPrice());
-		return cb;
+		return setBeanFromEntity(dao.getCoffee(name));
 	}
 	
-	public void createCoffee(String name, long price) {
-		dao.createCoffee(name, price);
+	public CoffeeBean createCoffee(CoffeeBean bean) {
+		return setBeanFromEntity(setEntityFromBean(bean));
 	}
 	
-	public void deleteCoffee(String name) {
-		CoffeeEntity entity = dao.getCoffee(name); 
+	public void deleteCoffee(CoffeeBean bean) {
+		CoffeeEntity entity = setEntityFromBean(bean);
 		dao.deleteCoffee(entity);
 	}
 	
@@ -46,13 +42,22 @@ public class CoffeeModel {
 		List<CoffeeBean> beans = new ArrayList<>();
 		
 		for(CoffeeEntity ce : entitys) {
-			CoffeeBean cb = new CoffeeBean();
-			cb.setName(ce.getName());
-			cb.setPrice(ce.getPrice());
+			CoffeeBean cb = setBeanFromEntity(ce);
 			beans.add(cb);
 		}
 		
 		return beans;
+	}
+	
+	private CoffeeBean setBeanFromEntity(CoffeeEntity entity) {
+		CoffeeBean cb = new CoffeeBean();
+		cb.setName(entity.getName());
+		cb.setPrice(entity.getPrice());
+		return cb;
+	}
+	
+	private CoffeeEntity setEntityFromBean(CoffeeBean bean) {
+		return dao.createCoffee(bean.getName(), bean.getPrice());
 	}
 	
 }

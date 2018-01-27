@@ -24,10 +24,11 @@ public class CoffeeDao {
 	 * @param name
 	 * @param price
 	 */
-	public void createCoffee(String name, long price) {
+	public CoffeeEntity createCoffee(String name, long price) {
 		CoffeeEntity  ce = new CoffeeEntity(name, price);
 		// Merg kollar om entity'n finns i databasen och skapar en om den inte gör det, och updaterar om den gör det! bra skit!
 		em.merge(ce);
+		return ce;
 	}
 
 	/**
