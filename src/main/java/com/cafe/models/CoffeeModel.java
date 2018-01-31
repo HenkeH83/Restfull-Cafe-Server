@@ -34,7 +34,6 @@ public class CoffeeModel {
 	
 	public void deleteCoffee(String name) {
 		CoffeeEntity entity = dao.getCoffee(name);
-//		CoffeeEntity entity = setEntityFromBean(bean);
 		dao.deleteCoffee(entity);
 	}
 	
