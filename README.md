@@ -10,5 +10,4 @@ JAX-Rs,
 Maven,
 JPA,
 Hibernate,
-MySQL,
-Glassfish.
+MySQL.
