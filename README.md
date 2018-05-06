@@ -1,3 +1,14 @@
 # Restfull-Cafe-Server
 
-A RESTfull bakend for a schoolproject.
+School project. 
+Restfull backend with CRUD functionality.
+
+#### Technologies
+
+J2EE
+JAX-Rs
+Maven
+JPA
+Hibernate
+MySQL
+Glassfish
