@@ -5,10 +5,10 @@ Restfull backend with CRUD functionality.
 
 #### Technologies
 
-J2EE
-JAX-Rs
-Maven
-JPA
-Hibernate
-MySQL
-Glassfish
+J2EE,
+JAX-Rs,
+Maven,
+JPA,
+Hibernate,
+MySQL,
+Glassfish.
